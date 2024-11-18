@@ -1,28 +1,33 @@
 /*6. Write a associative array example .explain its functionality.*/
 
-module queue_operations;
-  int que_eg[$];
+module associative_array_example;
+  int assoc_array[string];
 
   initial begin
-    que_eg = {2, 4, 6, 8};
-    $display("Initial queue: %p", que_eg);
+    assoc_array["apple"] = 10;
+    assoc_array["banana"] = 20;
+    assoc_array["cherry"] = 30;
 
-    que_eg.insert(0, 1);
-    $display("Queue after inserting 1 at the first index: %p", que_eg);
+    foreach (assoc_array[key]) begin
+      $display("assoc_array[%s] = %0d", key, assoc_array[key]);
+    end
 
-    que_eg.delete(2);
-    $display("Queue after deleting element at the third index: %p", que_eg);
+    $display("Value associated with 'banana': %0d", assoc_array["banana"]);
 
-    que_eg.push_back(9);
-    $display("Queue after inserting 9 as the last element: %p", que_eg);
+    if (assoc_array.exists("cherry")) begin
+      $display("'cherry' exists in the array with value: %0d", assoc_array["cherry"]);
+    end else begin
+      $display("'cherry' does not exist in the array.");
+    end
 
-    que_eg.shuffle();
-    $display("Queue after shuffling: %p", que_eg);
-
-    que_eg.reverse();
-    $display("Queue after reversing: %p", que_eg);
+    assoc_array.delete("apple");
+    $display("After deleting 'apple':");
+    foreach (assoc_array[key]) begin
+      $display("assoc_array[%s] = %0d", key, assoc_array[key]);
+    end
   end
 endmodule
+
 
 /*Output
 assoc_array[apple] = 10
