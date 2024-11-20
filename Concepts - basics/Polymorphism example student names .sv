@@ -74,12 +74,12 @@ module student_names;
     p_E = s_E;
     p_F = s_F;
     
-    s_A.name();
-    s_B.name();
-    s_C.name();
-    s_D.name();
-    s_E.name();
-    s_F.name();
+    p_A.name();
+    p_B.name();
+    p_C.name();
+    p_D.name();
+    p_E.name();
+    p_F.name();
   end
 endmodule
         
