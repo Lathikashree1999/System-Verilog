@@ -1,4 +1,4 @@
-class parent_trans;
+class parent;
   bit [31:0] data;
   int id;
   
@@ -7,7 +7,7 @@ class parent_trans;
   endfunction
 endclass
 
-class child_trans extends parent_trans;
+class child extends parent;
   bit [31:0] data;
   int id;
   function void display();
@@ -17,17 +17,17 @@ endclass
 
 module class_example;
   initial begin
-    parent_trans p_tr;
-    child_trans c_tr;
-    c_tr = new();
+    parent p;
+    child_trans c;
+    c = new();
     
-    p_tr = c_tr;
-    c_tr.data = 10;
-    c_tr.id = 2;
+    p = c;
+    c.data = 10;
+    c.id = 2;
     
-    p_tr.data = 5;
-    p_tr.id = 1;
-    p_tr.display();
+    p.data = 5;
+    p.id = 1;
+    p.display();
   end
 endmodule
 
